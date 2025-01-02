@@ -20,7 +20,7 @@ public class Criticals extends Module {
         super("Criticals", Category.COMBAT);
     }
 
-    private final EnumProperty mode = new EnumProperty("Mode", this, "Packet", "Packet", "Verus", "Visual");
+    private final EnumProperty mode = new EnumProperty("Mode", this, "Packet", "Packet", "Packet2", "Visual");
     private final NumberProperty delay = new NumberProperty("Delay", this, 100, 1000, 750, 50);
 
     private final Timer timer = new Timer();
@@ -66,7 +66,7 @@ public class Criticals extends Module {
 
     @EventTarget
     public void onAttack(EventAttack e) {
-        if(mode.is("verus")) {
+        if(mode.is("Packet2")) {
             if(groundTicks > 2 && mc.thePlayer.onGround && e.getEntity() != null && timer.hasReached(delay.intValue()) && packets < 20) {
                 double posY = mc.thePlayer.posY;
 
